@@ -1,0 +1,13 @@
+<div class="d-flex align-items-center gap-2">
+  <h1><%= @article.title %></h1>
+  <%= link_to(edit_article_path) do %>
+    <i class="fa-solid fa-pen"></i>
+  <% end %>
+  <%= link_to(article_path, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }) do %>
+    <i class="fa-solid fa-trash"></i>
+  <% end %>
+</div>
+
+<p>
+  <%= @article.content.html_safe %>
+</p>
