@@ -12,5 +12,10 @@ require 'faker'
 Article.destroy_all
 
 10.times do
-  Article.create(title: Faker::Lorem.sentence, content: Faker::Lorem.paragraph)
+  content = "<p>#{Faker::Lorem.paragraph}</p>"
+  10.times do
+    content += "<h2>#{Faker::Lorem.sentence}</h2> \n"
+    content += "<p>#{Faker::Lorem.paragraph}</p>"
+  end
+  Article.create(title: Faker::Lorem.sentence, content: content)
 end
